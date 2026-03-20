@@ -1,1 +1,105 @@
 # Birthday
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Manjunath 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  text-align: center;
+  background: linear-gradient(45deg, #ff4e50, #fc913a);
+  color: white;
+  overflow: hidden;
+}
+
+.container {
+  margin-top: 100px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: white;
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
+
+#surprise {
+  margin-top: 30px;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* floating emojis */
+.emoji {
+  position: absolute;
+  font-size: 24px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  from {transform: translateY(100vh);}
+  to {transform: translateY(-10vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>🎂 Happy Birthday Manjunath 🎂</h1>
+  
+  <p id="text">Click the button… if you dare 😏</p>
+
+  <button onclick="start()">Click Me 🎁</button>
+
+  <div id="surprise" class="hidden">
+    <h2>Breaking News 🚨</h2>
+    <p>You are officially one year older… not wiser 😭</p>
+
+    <p>But still… one of the best humans I know.</p>
+
+    <h3>Also...</h3>
+    <h2 style="color: yellow;">I LOVE YOU ❤️</h2>
+
+    <p>(Don’t get emotional. Stay cool 😎)</p>
+  </div>
+</div>
+
+<script>
+function start() {
+  document.getElementById("surprise").style.display = "block";
+  createEmojis();
+}
+
+function createEmojis() {
+  const emojis = ["🎉","😂","🔥","🎂","😎"];
+
+  for(let i=0; i<20; i++){
+    let emoji = document.createElement("div");
+    emoji.classList.add("emoji");
+    emoji.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.animationDuration = (3 + Math.random()*5) + "s";
+
+    document.body.appendChild(emoji);
+  }
+}
+</script>
+
+</body>
+</html>
